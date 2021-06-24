@@ -90,11 +90,11 @@ jobs:
       uses: docker/setup-qemu-action@v1
     - name: Build Wheel
       run: |
-            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             -e PLAT=manylinux2014_aarch64 \
             -e PYTHON_TAGS="$PYTHON_TAGS" \
             ${{ env.img }} \
-            /ws/build_scripts/wheels/manylinux.sh
+            /io/build_scripts/wheels/manylinux.sh
     - uses: actions/upload-artifact@v2
       with:
         name: dist
