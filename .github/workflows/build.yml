@@ -69,3 +69,33 @@ jobs:
         with:
           name: dist
           path: dist
+          
+  build-aarch64:
+    name: Python manylinux2014_aarch64 wheels
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_TAGS: 'cp36-cp36m, cp37-cp37m, cp38-cp38, cp39-cp39'
+      img: quay.io/pypa/manylinux2014_aarch64
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout submodules
+      run: |
+        git submodule init
+        git submodule update
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Build Wheel
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+            -e PLAT=manylinux2014_aarch64 \
+            -e PYTHON_TAGS="$PYTHON_TAGS" \
+            ${{ env.img }} \
+            /ws/build_scripts/wheels/manylinux.sh
+    - uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: dist            
