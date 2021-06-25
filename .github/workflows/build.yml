@@ -97,7 +97,8 @@ jobs:
             bash -exc 'yum install -y sudo && \
             sudo yum install -y epel-release && \
             sudo yum-config-manager --enable epel && \
-            sudo yum install glibc-devel -y && \
+            sudo yum install libSM dnf glibc-devel -y && \
+            dnf install -y trinity-k3b-plugin-ffmpeg libXext&& \
             /io/build_scripts/wheels/manylinux.sh'
     - uses: actions/upload-artifact@v2
       with:
