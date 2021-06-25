@@ -55,6 +55,7 @@ dirs -c
 rm -rf "$TD"
 
 cmake --version
+uname -m
 ninja --version
 flex --version
 bison --version
