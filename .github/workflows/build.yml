@@ -94,7 +94,8 @@ jobs:
             -e PLAT=manylinux2014_aarch64 \
             -e PYTHON_TAGS="$PYTHON_TAGS" \
             ${{ env.img }} \
-            /io/build_scripts/wheels/manylinux.sh
+            bash -exc 'yum install glibc-aarch64-linux-gnu -y && \
+            /io/build_scripts/wheels/manylinux.sh'
     - uses: actions/upload-artifact@v2
       with:
         name: dist
