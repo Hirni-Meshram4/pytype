@@ -98,6 +98,9 @@ jobs:
             sudo yum install -y epel-release && \
             sudo yum-config-manager --enable epel && \
             sudo yum install libSM dnf glibc-devel -y && \
+            sudo dnf install -y epel-release dnf-utils && \
+            sudo yum-config-manager --set-enabled PowerTools && \
+            sudo yum-config-manager --add-repo=https://negativo17.org/repos/epel-multimedia.repo && \
             dnf install -y ffmpeg libXext && \
             /io/build_scripts/wheels/manylinux.sh'
     - uses: actions/upload-artifact@v2
