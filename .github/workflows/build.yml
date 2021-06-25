@@ -97,7 +97,7 @@ jobs:
             bash -exc 'yum install -y sudo && \
             sudo yum install -y epel-release && \
             sudo yum-config-manager --enable epel && \
-            sudo yum install glibc-aarch64-linux-gnu -y && \
+            sudo yum install glibc-aarch64-linux-gnu-devel -y && \
             /io/build_scripts/wheels/manylinux.sh'
     - uses: actions/upload-artifact@v2
       with:
