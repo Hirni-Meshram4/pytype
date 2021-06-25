@@ -94,7 +94,7 @@ jobs:
             -e PLAT=manylinux2014_aarch64 \
             -e PYTHON_TAGS="$PYTHON_TAGS" \
             ${{ env.img }} \
-            bash -exc 'yum install glibc.i686 && \
+            bash -exc 'yum provides ld-linux.so.2 && \
             #yum install -y sudo && \
             #sudo yum install -y epel-release && \
             #sudo yum-config-manager --enable epel && \
