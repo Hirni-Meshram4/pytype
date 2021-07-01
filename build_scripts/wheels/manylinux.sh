@@ -22,13 +22,14 @@ untar() {
 }
 
 # Install ninja/ninja-build (requires CMake)
-curl -sSL \
-  -o ninja.zip \
-  "https://github.com/ninja-build/ninja/releases/download/v${NINJA_VERSION}/ninja-linux.zip"
-unzip ninja.zip
-mv ninja /usr/local/bin/
-rm -vf ninja*
-ln -s /usr/local/bin/ninja /usr/local/bin/ninja-build
+#curl -sSL \
+ # -o ninja.zip \
+  #"https://github.com/ninja-build/ninja/releases/download/v${NINJA_VERSION}/ninja-linux.zip"
+#unzip ninja.zip
+#mv ninja /usr/local/bin/
+#rm -vf ninja*
+#ln -s /usr/local/bin/ninja /usr/local/bin/ninja-build
+yum install ninja-build
 
 TD="$(mktemp -d)"
 pushd "$TD" || exit 1
