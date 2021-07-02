@@ -29,7 +29,9 @@ untar() {
 #mv ninja /usr/local/bin/
 #rm -vf ninja*
 #ln -s /usr/local/bin/ninja /usr/local/bin/ninja-build
-yum install ninja-build
+yum install -y epel-release
+yum-config-manager --enable epel
+yum install -y ninja-build
 
 TD="$(mktemp -d)"
 pushd "$TD" || exit 1
