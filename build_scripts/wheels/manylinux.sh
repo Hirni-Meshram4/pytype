@@ -22,16 +22,16 @@ untar() {
 }
 
 # Install ninja/ninja-build (requires CMake)
-#curl -sSL \
- # -o ninja.zip \
-  #"https://github.com/ninja-build/ninja/releases/download/v${NINJA_VERSION}/ninja-linux.zip"
-#unzip ninja.zip
-#mv ninja /usr/local/bin/
-#rm -vf ninja*
-#ln -s /usr/local/bin/ninja /usr/local/bin/ninja-build
-yum install -y epel-release
-yum-config-manager --enable epel
-yum install -y ninja-build
+curl -sSL \
+  -o ninja.zip \
+  "https://github.com/ninja-build/ninja/archive/refs/tags/v1.10.0.zip"
+unzip ninja.zip
+mv ninja /usr/local/bin/
+rm -vf ninja*
+ln -s /usr/local/bin/ninja /usr/local/bin/ninja-build
+#yum install -y epel-release
+#yum-config-manager --enable epel
+#yum install -y ninja-build
 
 TD="$(mktemp -d)"
 pushd "$TD" || exit 1
