@@ -25,7 +25,7 @@ untar() {
 curl -sSL \
   -o ninja.zip \
   "https://github.com/ninja-build/ninja/archive/refs/tags/v1.10.0.zip"
-unzip ninja.zip
+unzip v1.10.0.zip
 mv ninja /usr/local/bin/
 rm -vf ninja*
 ln -s /usr/local/bin/ninja /usr/local/bin/ninja-build
