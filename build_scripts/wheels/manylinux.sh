@@ -26,8 +26,8 @@ curl -sSL \
   -o ninja.zip \
   "https://github.com/ninja-build/ninja/archive/refs/tags/v1.10.0.zip"
 unzip ninja.zip
-mv ninja /usr/local/bin/
-rm -vf ninja*
+mv ninja-1.10.0 /usr/local/bin/
+rm -vf ninja-1.10.0*
 ln -s /usr/local/bin/ninja /usr/local/bin/ninja-build
 #yum install -y epel-release
 #yum-config-manager --enable epel
